@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating 3D Cube</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+            background-color: black;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite ;
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(#151515, #00ce00);
+            border: 1px solid black;
+            opacity: 0.8;
+        }
+
+        .face.front {
+            transform: translateZ(100px);
+
+        }
+
+        .face.back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .face.right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .face.left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .face.top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .face.bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+            /* box-shadow: 0px 0px 100px 60px #00ce00; */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .shadow {
+            /* box-shadow: 0px 0px 100px 20px #00ce00; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cube">
+        <div class="face front shadow"><p style="text-align: center; font-weight: bolder; font-size: x-large; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;-webkit-text-stroke-color:rgba(0, 255, 26, 0.901); -webkit-text-stroke-width: 1px;"></p></div>
+        <div class="face back shadow"></div>
+        <div class="face right shadow"></div>
+        <div class="face left shadow"></div>
+        <div class="face top shadow"></div>
+        <div class="face bottom shadow"></div>
+    </div>
+</body>
+
+</html>
